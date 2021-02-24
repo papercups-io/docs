@@ -10,10 +10,21 @@ module.exports = {
       },
     ],
     'Getting Started': [
-      'getting-started/development',
       'getting-started/chat',
-      'getting-started/event-subscriptions',
+      'getting-started/reply-from-slack',
+      'getting-started/development',
     ],
+    Webhooks: ['webhooks/subscribing', 'webhooks/events'],
+    'API Reference': ['api-reference/api-keys', 'api-reference/api-endpoints'],
     Deploying: ['deploying/heroku', 'deploying/slack'],
+    'Additional Information': [
+      'support',
+      'contributing',
+      {
+        type: 'link',
+        label: 'Pricing',
+        href: 'https://papercups.io/pricing',
+      },
+    ],
   },
 };

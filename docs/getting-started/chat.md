@@ -1,25 +1,15 @@
 ---
 id: chat
-title: Configuring chat
+title: Setting up chat
 description: 'Configuring your chat widget'
 slug: /chat
 ---
-
-> Papercups chat widget
-
-[![NPM](https://img.shields.io/npm/v/@papercups-io/chat-widget.svg)](https://www.npmjs.com/package/@papercups-io/chat-widget) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Demo
 
 Available at https://app.papercups.io/demo
 
 ![demo](https://user-images.githubusercontent.com/5264279/88118921-e4a37900-cb8c-11ea-825f-86deb8edc518.gif)
-
-## Install
-
-```bash
-npm install --save @papercups-io/chat-widget
-```
 
 ## Usage
 
@@ -69,12 +59,18 @@ Paste the code below between your `<head>` and `</head>` tags:
 
 ### Using in React
 
+Install the `@papercups-io/chat-widget` node module:
+
+```bash
+npm install --save @papercups-io/chat-widget
+```
+
 Place the code below in any pages on which you would like to render the widget. If you'd like to render it in all pages by default, place it in the root component of your app.
 
 ```tsx
 import React from 'react';
 
-import ChatWidget from '@papercups-io/chat-widget';
+import {ChatWidget} from '@papercups-io/chat-widget';
 
 // You can also import the following in v1.1.0 and above:
 // import {ChatWidget, ChatWindow, Papercups} from '@papercups-io/chat-widget';

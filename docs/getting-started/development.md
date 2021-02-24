@@ -1,6 +1,6 @@
 ---
 id: development
-title: Development setup
+title: Development
 description: 'Setting up your development environment'
 slug: /development
 ---
