@@ -20,6 +20,17 @@ curl https://app.papercups.io/api/v1/me \
   -H "Authorization: Bearer [YOUR_API_KEY]"
 ```
 
+```json title="Response"
+{
+  "data": {
+    "account_id": "eb504736-xxxx-xxxx-xxxx-1a82ae60b266",
+    "email": "alex@example.io",
+    "id": 1,
+    "role": "admin"
+  }
+}
+```
+
 ### Conversations
 
 A conversation represents a thread of messages.
