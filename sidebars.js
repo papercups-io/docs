@@ -17,7 +17,11 @@ module.exports = {
     ],
     Webhooks: ['webhooks/subscribing', 'webhooks/events'],
     'API Reference': ['api-reference/api-keys', 'api-reference/api-endpoints'],
-    Deploying: ['deploying/heroku', 'deploying/slack'],
+    Deploying: [
+      'deploying/aws',
+      'deploying/heroku',
+      'deploying/slack'
+    ],
     'Additional Information': [
       'support',
       'contributing',
