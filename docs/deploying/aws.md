@@ -205,6 +205,8 @@ This guide presumes a clean AWS account with no resources.
   ```
 
 3. If you need to create the hosted zone, do so now. Take note of the output of the command.
+   Please read [this guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/migrate-dns-domain-in-use.html) if you are unfamiliar with DNS management.
+
   ```bash
   # Create example.com.
   aws route53 create-hosted-zone --name "papercupsexample.com." --caller-reference "papercupsexample-com-$(date +%s)"
