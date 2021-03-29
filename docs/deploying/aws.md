@@ -21,7 +21,7 @@ Your pre-existing infrastructure will dictate what steps you must perform or ski
 
 This guide is not meant to dictate architecture, but merely represents a possible path. You might choose to use Aurora, as described here, or an RDS instance, or the [Bitnami Postgresql chart](https://github.com/papercups-io/charts/tree/main/charts/papercups). You may choose to use EKS, or ECS, with `eksctl` or with `kops`. There are many variables available to chooose from, and this approach should be used as the start of a conversation. Please find us at [slack](https://papercups-io.slack.com/archives/C01S4C95JS0) to chat!
 
-# Prerequisites
+## Prerequisites
 
 - An [AWS account setup and activated](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/).
 
@@ -40,10 +40,10 @@ This guide is not meant to dictate architecture, but merely represents a possibl
 - [Setup your environment variables with an AWS access key and secret](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html).
 
 
-# Step By Step Installation
+## Step By Step Installation
 
 This guide presumes a clean AWS account with no resources.
-## Database Setup (Aurora)
+### Database Setup (Aurora)
 
 1. Create Security Group for Aurora.
   ```bash
@@ -66,7 +66,7 @@ This guide presumes a clean AWS account with no resources.
     --vpc-security-group-ids $(aws ec2 describe-security-groups --group-name "papercups-db"  --query 'SecurityGroups[0].GroupId' --output text)
   ```
 
-## EKS Setup
+### EKS Setup
 
 1. Create the cluster with the subnets from the "default" db subnet group.
   ```bash
@@ -85,7 +85,7 @@ This guide presumes a clean AWS account with no resources.
     --protocol tcp \
     --port 5432
   ```
-### Setup the AWS Load Balancer Controller
+#### Setup the AWS Load Balancer Controller
 1. Tag the subnets as usable by the ELB.
   ```bash
   aws ec2 create-tags \
@@ -151,7 +151,7 @@ This guide presumes a clean AWS account with no resources.
   kubectl get deployment -n kube-system aws-load-balancer-controller
   ```
 
-### Setup the External DNS Controller
+#### Setup the External DNS Controller
 > If you choose to skip this section, after deploying Papercups and the ingress controller is created, add a CNAME or ALIAS record for `papercups.example.com` that points to the created load balancer from `kubectl --namespace papercups describe ing papercups`*
 
 1. Create the IAM policy.
@@ -242,7 +242,7 @@ This guide presumes a clean AWS account with no resources.
   kubectl get deployment -n kube-system external-dns-controller
   ```
 
-## Deploying Papercups
+### Deploying Papercups
 
 1. Deploy the application using helm
   ```bash
@@ -293,19 +293,19 @@ This guide presumes a clean AWS account with no resources.
       ```
 
 
-# References
+## References
 
-## EKS
+#### EKS
 - [Creating an Amazon EKS Cluster](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html)
 
-## AWS Load Balancer Controller
+#### AWS Load Balancer Controller
 - [EKS-chart](https://github.com/aws/eks-charts/tree/master/stable/aws-load-balancer-controller)
 - [Userguide](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html)
 - [Application guide](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/)
 
-## External-DNS
+#### External-DNS
 - [Bitnami chart](https://github.com/bitnami/charts/tree/master/bitnami/external-dns)
 - [Application guide](https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md)
 
-## Papercups
+#### Papercups
 - [Papercups Chart](https://artifacthub.io/packages/helm/papercups/papercups)
