@@ -26,6 +26,7 @@ Stay tuned! We'll be posting a more detailed roadmap soon 🤓
 - **Markdown and emoji support** - use markdown and emoji to add character to your messages!
 - **Invite your team** - send invite links to your teammates to join your account
 - **Conversation management** - close, assign, and prioritize conversations
+- **Private Notes** - Send private notes that you share with your team
 - **Built on Elixir** - optimized for responsiveness, fault-tolerance, and support for realtime updates
 
 ## Demo
