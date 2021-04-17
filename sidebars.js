@@ -13,6 +13,7 @@ module.exports = {
       'getting-started/chat',
       'getting-started/reply-from-slack',
       'getting-started/reply-from-mattermost',
+      'getting-started/reply-via-sms',
       'getting-started/development',
     ],
     Webhooks: ['webhooks/subscribing', 'webhooks/events'],
