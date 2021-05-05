@@ -52,6 +52,8 @@ Head back to your Twilio console. You'll need to [create a Twilio Messaging Serv
 
 Inside the settings for that Messaging Service, go to the Integrations tab.
 
+For our cloud service use `https://app.papercups.com/api/twilio/webhook` as the `Request URL`
+
 It'll look like this:
 
 ![twilio-integrations-tab](https://user-images.githubusercontent.com/7440689/115097622-4c5ada80-9ef9-11eb-89e4-b609e6b23551.png)
