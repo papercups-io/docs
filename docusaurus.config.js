@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   title: 'Papercups',
   tagline: 'Open source customer messaging',
@@ -49,8 +51,7 @@ module.exports = {
           items: [
             {
               label: 'Slack',
-              href:
-                'https://join.slack.com/t/papercups-io/shared_invite/zt-h0c3fxmd-hZi1Zp8~D61S6GD16aMqmg',
+              href: 'https://join.slack.com/t/papercups-io/shared_invite/zt-h0c3fxmd-hZi1Zp8~D61S6GD16aMqmg',
             },
             {
               label: 'GitHub',
@@ -101,6 +102,14 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+      },
+    ],
+  ],
+  plugins: [
+    [
+      '@papercups-io/docusaurus-plugin',
+      {
+        accountId: 'eb504736-0f20-4978-98ff-1a82ae60b266',
       },
     ],
   ],
