@@ -17,12 +17,12 @@ module.exports = {
       'getting-started/development',
     ],
     Webhooks: ['webhooks/subscribing', 'webhooks/events'],
-    'API Reference': ['api-reference/api-keys', 'api-reference/api-endpoints'],
-    Deploying: [
-      'deploying/aws',
-      'deploying/heroku',
-      'deploying/slack'
+    'API Reference': [
+      'api-reference/api-keys',
+      'api-reference/api-endpoints',
+      'api-reference/functions',
     ],
+    Deploying: ['deploying/aws', 'deploying/heroku', 'deploying/slack'],
     'Additional Information': [
       'support',
       'contributing',
