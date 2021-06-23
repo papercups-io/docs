@@ -97,3 +97,78 @@ async function handleMessageCreated(message) {
   return null;
 }
 ```
+
+## Coming soon
+
+:::caution
+Some of the methods below are currently in alpha, but will be publicly available soon!
+:::
+
+### Send alerts triggered by messages from premium users
+
+When your team receives messages from premium customers, you can trigger alerts to Slack/SMS/email so that someone can respond right away.
+
+```javascript
+// ... See boilerplate above!
+
+async function handleMessageCreated(message) {
+  const {body, customer} = message;
+  const {metadata = {}} = customer;
+  const isPremiumCustomer = metadata.subscription === 'premium';
+
+  if (isPremiumCustomer) {
+    const notifications = [
+      papercups.notify.slack({
+        channel: '#notifications',
+        text: `New message from premium customer: ${body}`,
+      }),
+      papercups.notify.sms({
+        to: '+16501234567',
+        body: `New message from premium customer: ${body}`,
+      }),
+      papercups.notify.gmail({
+        to: 'me@company.co',
+        subject: `New message from premium customer`,
+        body: body,
+      }),
+    ];
+
+    return Promise.all(notifications);
+  }
+
+  return null;
+}
+```
+
+### Schedule an away message to be sent
+
+If no one from your team is able to respond to a new message within 2 minutes, send an away message.
+
+```javascript
+// ... See boilerplate above!
+
+async function handleMessageCreated(message) {
+  const {conversation_id} = message;
+  const [initialConversationMessage] = await papercups.messages.list({
+    conversation_id,
+    limit: 1,
+  });
+  const isInitialMessage = initialConversationMessage?.id === message.id;
+
+  if (isInitialMessage) {
+    return papercups.messages.create(
+      {
+        body: "We're not available at the moment, but we'll get back to you as soon as we can!",
+        type: 'bot',
+        conversation_id,
+      },
+      {
+        schedule_in: 2 * 60 * 1000, // 2 minutes
+        cancel_on: 'agent_reply', // Cancel scheduled message if agent replies in the meantime
+      }
+    );
+  }
+
+  return null;
+}
+```
