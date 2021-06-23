@@ -287,12 +287,20 @@ This guide presumes a clean AWS account with no resources.
 
 1. Delete the EKS cluster
    ```bash
-      eksctl delete cluster --name papercups
-      ```
+   eksctl delete cluster --name papercups
+   ```
 1. Delete the RDS instance
    ```bash
-      aws rds delete-db-cluster --db-cluster-idenfitier papercups
-      ```
+   aws rds delete-db-cluster --db-cluster-identifier papercups --skip-final-snapshot
+   ```
+1. Empty the DNS Hosted Zone
+   ```bash
+   aws route53 change-resource-record-sets --hosted-zone-id $HOSTED_ZONE_ID --change-batch file://<(aws route53 list-resource-record-sets   --output json   --hosted-zone-id $(aws route53 list-hosted-zones-by-name --output text --dns-name "papercupsexample.com." --query 'HostedZones[0].Id') --query '{Changes: ResourceRecordSets[?Name!=`papercupsexample.com.`].{Action: `DELETE`, ResourceRecordSet: @}}')
+   ```
+1. Delete the DNS Hosted Zone
+   ```bash
+   aws route53 delete-hosted-zone --id $(aws route53 list-hosted-zones-by-name --output text --dns-name "papercupsexample.com." --query 'HostedZones[0].Id')
+   ```
 
 
 ## References
