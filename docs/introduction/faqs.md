@@ -9,7 +9,7 @@ slug: /faqs
 
 You can find our pricing information at https://papercups.io/pricing.
 
-We're currently offering deals for startups, so don't hesistate to reach out!
+We're currently offering deals for startups, so don't hesitate to reach out!
 
 ### Is there a hosted version?
 
