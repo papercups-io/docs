@@ -111,7 +111,7 @@ Outgoing webhook details:
 - **Description**: `Webhook events for the Papercups integration`
 - **Content Type**: `application/json` (important!)
 - **Channel**: _Should match the channel you chose above_ (important!)
-- **Callback URLs**: `https://app.papercups.io/api/mattermost/webhook` (important!)
+- **Callback URLs**: `https://app.papercups.io/api/mattermost/webhook` or REPLACE WITH YOUR SELF-HOSTED URL (important!)
 
 Click **Save**. After creating the new outgoing webhook, take note of the **Token**.
 ![mattermost-webhook-success](https://user-images.githubusercontent.com/5264279/111205731-eef00880-859d-11eb-86cf-a27d2d075211.png)
