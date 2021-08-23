@@ -27,8 +27,13 @@ _**NB**: if you're not self-hosting, you can safely ignore this guide :)_
 
 ![](https://paper-attachments.dropbox.com/s_63895AAB3973EA701984146FF05B40938812C8B7E2ACDD7574570851E5FDF9D0_1596320537804_Screen+Shot+2020-08-01+at+6.12.53+PM.png)
 
-- Subscribe to the `message.channels` bot event
-- Subscribe to the `message.channels` user event
+- Subscribe to the following bot events:
+  - `message:channels`
+  - `message:groups`
+
+- Also, subscribe to the same user events:
+  - `message:channels`
+  - `message:groups`
 
 ![](https://paper-attachments.dropbox.com/s_63895AAB3973EA701984146FF05B40938812C8B7E2ACDD7574570851E5FDF9D0_1596320538144_Screen+Shot+2020-08-01+at+6.07.39+PM.png)
 
