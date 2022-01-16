@@ -23,10 +23,17 @@ Stay tuned! We'll be posting a more detailed roadmap soon 🤓
 - **Flutter support (beta)** - embed the chat widget in your [Flutter](https://github.com/papercups-io/papercups_flutter) app (courtesy of @aguilaair :heart:)
 - **Slack integration** - connect with Slack, so you can view and reply to messages directly from a Slack channel
 - **Mattermost integration** - connect with [Mattermost](https://docs.papercups.io/reply-from-mattermost), so you can view and reply to messages directly from a Mattermost channel
-- **Markdown and emoji support** - use markdown and emoji to add character to your messages!
+- **Gmail integration** - link your support Gmail account to sync messages and reply to emails directly from Papercups
+- **SMS integration** - reply to incoming SMS messages directly from Papercups
+- **GitHub integration** - link your GitHub organization to Papercups to easily create issues and notify customers when issues are closed
+- **Markdown and emoji support** - use markdown and emoji to add character to your messages
 - **Invite your team** - send invite links to your teammates to join your account
 - **Conversation management** - close, assign, and prioritize conversations
-- **Private Notes** - Send private notes that you share with your team
+- **Private notes** - send private notes that you share with your team
+- **Customer and conversation tags** - organize your customers and conversations with custom tags and labels
+- **@ mentions** - notify your teammates about important messages
+- **Saved replies** - create text snippets for responses to common inquiries to streamline your workflow
+- **Live session viewing** - watch how your customers are interacting with your webpage in realtime
 - **Built on Elixir** - optimized for responsiveness, fault-tolerance, and support for realtime updates
 
 ## Demo
