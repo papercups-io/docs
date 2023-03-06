@@ -1,26 +1,28 @@
 ---
 id: api-endpoints
 title: API endpoints
-description: 'Public Papercups API endpoints'
 slug: /api-endpoints
+description: Public Papercups API endpoints
 ---
+
+# API endpoints
 
 The Papercups API is organized around REST. Our API has predictable resource-oriented URLs, accepts both form-encoded and JSON request bodies, returns JSON-encoded responses, and uses standard HTTP response codes, authentication, and verbs.
 
-Before you can use the API, you'll need to [get an API key](api-keys).
+Before you can use the API, you'll need to [get an API key](../docs/api-reference/api-keys/).
 
-### Users
+#### Users
 
 A user represents a person with a Papercups account. For your company's users, see `customers` below.
 
-#### Retrieve your personal information
+**Retrieve your personal information**
 
-```bash title="GET /api/v1/me"
+```bash
 curl https://app.papercups.io/api/v1/me \
   -H "Authorization: Bearer [YOUR_API_KEY]"
 ```
 
-```json title="Response"
+```json
 {
   "data": {
     "account_id": "eb504736-xxxx-xxxx-xxxx-1a82ae60b266",
@@ -31,11 +33,11 @@ curl https://app.papercups.io/api/v1/me \
 }
 ```
 
-### Conversations
+#### Conversations
 
 A conversation represents a thread of messages.
 
-#### The conversation object
+**The conversation object**
 
 ```json
 {
@@ -57,9 +59,9 @@ A conversation represents a thread of messages.
 }
 ```
 
-#### Create a conversation
+**Create a conversation**
 
-```bash title="POST /api/v1/conversations"
+```bash
 curl https://app.papercups.io/api/v1/conversations \
   -H "Authorization: Bearer [YOUR_API_KEY]" \
   -X POST \
@@ -68,7 +70,7 @@ curl https://app.papercups.io/api/v1/conversations \
   -d "conversation[status]"="open"
 ```
 
-```json title="Response"
+```json
 {
   "data": {
     "id": "05f67a21-xxxx-xxxx-xxxx-71b22039cf49",
@@ -86,14 +88,14 @@ curl https://app.papercups.io/api/v1/conversations \
 }
 ```
 
-#### Retrieve a conversation
+**Retrieve a conversation**
 
-```bash title="GET /api/v1/conversations/:id"
+```bash
 curl https://app.papercups.io/api/v1/conversations/[id] \
   -H "Authorization: Bearer [YOUR_API_KEY]"
 ```
 
-```json title="Response"
+```json
 {
   "data": {
     "id": "56d2cfd6-xxxx-xxxx-xxxx-c4770868ee4c",
@@ -114,16 +116,16 @@ curl https://app.papercups.io/api/v1/conversations/[id] \
 }
 ```
 
-#### Update a conversation
+**Update a conversation**
 
-```bash title="PUT /api/v1/conversations/:id"
+```bash
 curl https://app.papercups.io/api/v1/conversations/[id] \
   -H "Authorization: Bearer [YOUR_API_KEY]" \
   -X PUT \
   -d "conversation[status]"="closed"
 ```
 
-```json title="Response"
+```json
 {
   "data": {
     "id": "05f67a21-xxxx-xxxx-xxxx-71b22039cf49",
@@ -141,35 +143,35 @@ curl https://app.papercups.io/api/v1/conversations/[id] \
 }
 ```
 
-#### Delete a conversation
+**Delete a conversation**
 
-```bash title="DELETE /api/v1/conversations/:id"
+```bash
 curl https://app.papercups.io/api/v1/conversations/[id] \
   -H "Authorization: Bearer [YOUR_API_KEY]" \
   -X DELETE
 ```
 
-```bash title="Response"
+```bash
 No response
 ```
 
-#### List all conversations
+**List all conversations**
 
-```bash title="GET /api/v1/conversations"
+```bash
 curl https://app.papercups.io/api/v1/conversations \
   -H "Authorization: Bearer [YOUR_API_KEY]"
 ```
 
 We also support filtering by `status`, `priority`, `customer_id`, and `assignee_id`:
 
-```bash title="GET /api/v1/conversations?status=closed"
+```bash
 curl https://app.papercups.io/api/v1/conversations \
   -H "Authorization: Bearer [YOUR_API_KEY]" \
   -G \
   -d status="closed"
 ```
 
-```json title="Response"
+```json
 {
   "data": [
     {
@@ -198,11 +200,11 @@ curl https://app.papercups.io/api/v1/conversations \
 }
 ```
 
-### Customers
+#### Customers
 
 A customer represents one of your business's users, leads, or contacts.
 
-#### The customer object
+**The customer object**
 
 ```json
 {
@@ -236,9 +238,9 @@ A customer represents one of your business's users, leads, or contacts.
 }
 ```
 
-#### Create a customer
+**Create a customer**
 
-```bash title="POST /api/v1/customers"
+```bash
 curl https://app.papercups.io/api/v1/customers \
   -H "Authorization: Bearer [YOUR_API_KEY]" \
   -X POST \
@@ -248,7 +250,7 @@ curl https://app.papercups.io/api/v1/customers \
   -d "customer[account_id]"=[account_id]
 ```
 
-```json title="Response"
+```json
 {
   "data": {
     "id": "0e52c2c9-xxxx-xxxx-xxxx-9094418f22fd",
@@ -277,14 +279,14 @@ curl https://app.papercups.io/api/v1/customers \
 }
 ```
 
-#### Retrieve a customer
+**Retrieve a customer**
 
-```bash title="GET /api/v1/customers/:id"
+```bash
 curl https://app.papercups.io/api/v1/customers/[id] \
   -H "Authorization: Bearer [YOUR_API_KEY]"
 ```
 
-```json title="Response"
+```json
 {
   "data": {
     "id": "b4b6eaa9-xxxx-xxxx-xxxx-7c8b6fd36974",
@@ -318,16 +320,16 @@ curl https://app.papercups.io/api/v1/customers/[id] \
 }
 ```
 
-#### Update a customer
+**Update a customer**
 
-```bash title="PUT /api/v1/customers/:id"
+```bash
 curl https://app.papercups.io/api/v1/customers/[id] \
   -H "Authorization: Bearer [YOUR_API_KEY]" \
   -X PUT \
   -d "customer[phone]"="650-555-6789"
 ```
 
-```json title="Response"
+```json
 {
   "data": {
     "id": "0e52c2c9-xxxx-xxxx-xxxx-9094418f22fd",
@@ -356,35 +358,35 @@ curl https://app.papercups.io/api/v1/customers/[id] \
 }
 ```
 
-#### Delete a customer
+**Delete a customer**
 
-```bash title="DELETE /api/v1/customers/:id"
+```bash
 curl https://app.papercups.io/api/v1/customers/[id] \
   -H "Authorization: Bearer [YOUR_API_KEY]" \
   -X DELETE
 ```
 
-```bash title="Response"
+```bash
 No response
 ```
 
-#### List all customers
+**List all customers**
 
-```bash title="GET /api/v1/customers"
+```bash
 curl https://app.papercups.io/api/v1/customers \
   -H "Authorization: Bearer [YOUR_API_KEY]"
 ```
 
 We also support filtering by `name`, `email`, `host`, and `company_id`:
 
-```bash title="GET /api/v1/customers?name=Alex"
+```bash
 curl https://app.papercups.io/api/v1/customers \
   -H "Authorization: Bearer [YOUR_API_KEY]" \
   -G \
   -d name="Alex"
 ```
 
-```json title="Response"
+```json
 {
   "data": [
     {
@@ -421,11 +423,11 @@ curl https://app.papercups.io/api/v1/customers \
 }
 ```
 
-### Messages
+#### Messages
 
 Represents messages sent from the chat widget, the dashboard, Slack, etc.
 
-#### The message object
+**The message object**
 
 ```json
 {
@@ -464,9 +466,9 @@ Represents messages sent from the chat widget, the dashboard, Slack, etc.
 }
 ```
 
-#### Create a message
+**Create a message**
 
-```bash title="POST /api/v1/messages"
+```bash
 curl https://app.papercups.io/api/v1/messages \
   -H "Authorization: Bearer [YOUR_API_KEY]" \
   -X POST \
@@ -474,7 +476,7 @@ curl https://app.papercups.io/api/v1/messages \
   -d "message[conversation_id]"="56d2cfd6-c8a6-410b-93f5-c4770868ee4c"
 ```
 
-```json title="Response"
+```json
 {
   "data": {
     "id": "62dfee85-xxxx-xxxx-xxxx-5d0759f6495b",
@@ -505,14 +507,14 @@ curl https://app.papercups.io/api/v1/messages \
 }
 ```
 
-#### Retrieve a message
+**Retrieve a message**
 
-```bash title="GET /api/v1/messages/:id"
+```bash
 curl https://app.papercups.io/api/v1/messages/[id] \
   -H "Authorization: Bearer [YOUR_API_KEY]"
 ```
 
-```json title="Response"
+```json
 {
   "data": {
     "id": "2a1239b8-xxxx-xxxx-xxxx-16267296abcf",
@@ -551,26 +553,26 @@ curl https://app.papercups.io/api/v1/messages/[id] \
 }
 ```
 
-#### Delete a message
+**Delete a message**
 
-```bash title="DELETE /api/v1/messages/:id"
+```bash
 curl https://app.papercups.io/api/v1/messages/[id] \
   -H "Authorization: Bearer [YOUR_API_KEY]" \
   -X DELETE
 ```
 
-```bash title="Response"
+```bash
 No response
 ```
 
-#### List all messages
+**List all messages**
 
-```bash title="GET /api/v1/messages"
+```bash
 curl https://app.papercups.io/api/v1/messages \
   -H "Authorization: Bearer [YOUR_API_KEY]"
 ```
 
-```json title="Response"
+```json
 {
   "data": [
     {
